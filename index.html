@@ -1,0 +1,24 @@
+//index.html
+<body>
+    <h1>Welcome to the Restaurants Management System</h1>
+    <p>Use the API endpoints to manage your restaurant data.</p>
+    <script>
+        // Simple script to demonstrate API usage
+        fetch('/getRestaurants')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                const restaurantList = document.getElementById('restaurant-list');
+                data.forEach(restaurant => {
+                    const restaurantItem = document.createElement('div');
+                    restaurantItem.textContent = `Name: ${restaurant.name}, Cuisine: ${restaurant.cuisine},
+                    Capacity: ${restaurant.capacity}`;
+                    restaurantList.appendChild(restaurantItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching restaurants:', error);
+            });
+    </script>
+    <div id="restaurant-list"></div>
+</body>
