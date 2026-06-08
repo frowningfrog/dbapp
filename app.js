@@ -8,7 +8,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const MONGO_URI = "mongodb://localhost:27017/mtec";
+// const MONGO_URI = "mongodb://localhost:27017/mtec";
+const MONGO_URI = "mongodb://127.0.0.1:27017";
 
 mongoose.connect(MONGO_URI);
 const db = mongoose.connection;
